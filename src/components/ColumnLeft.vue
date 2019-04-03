@@ -1,8 +1,8 @@
 <template>
   <div class="left">
     <h1>Left</h1>
-    <component :is="display" v-if="isVisible" />
-    <p v-if="!isVisible">Invalid color / no color provided</p>
+    <component :is="toDisplay" v-if="toDisplay" />
+    <p v-if="!toDisplay">Invalid color / no color provided</p>
   </div>
 </template>
 
@@ -20,7 +20,6 @@ export default {
   },
   data: function() {
     return {
-      isVisible: false,
       toDisplay: null
     };
   },
@@ -31,8 +30,7 @@ export default {
       return;
     }
 
-    this.display = param;
-    this.isVisible = true;
+    this.toDisplay = param;
   }
 };
 </script>
