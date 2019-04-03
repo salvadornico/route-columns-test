@@ -2,6 +2,7 @@
   <div class="middle">
     <h1>Middle</h1>
     <component :is="display" v-if="isVisible" />
+    <p v-if="!isVisible">Invalid color / no color provided</p>
   </div>
 </template>
 
@@ -26,7 +27,7 @@ export default {
   beforeMount: function() {
     const param = this.$route.query.middle;
 
-    if (param == null) {
+    if (!param || !this.$options.components[param]) {
       return;
     }
 

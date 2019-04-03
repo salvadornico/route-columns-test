@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <p>Route format: /?left=[color]&middle=[color]&right=[color]</p>
+    <p>Available colors: Red, Blue, Yellow</p>
     <div class="columns">
       <ColumnLeft />
       <ColumnMiddle />
