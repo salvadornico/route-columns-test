@@ -2,7 +2,7 @@
   <div class="left">
     <h1>Left</h1>
     <component :is="toDisplay" v-if="toDisplay" />
-    <p v-if="!toDisplay">Invalid color / no color provided</p>
+    <p v-if="!toDisplay">Invalid color provided</p>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
     };
   },
   beforeMount: function() {
-    const param = this.$route.query.left;
+    const param = this.$route.params.left;
 
     if (!param || !this.$options.components[param]) {
       return;

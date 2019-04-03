@@ -1,33 +1,26 @@
 <template>
   <div id="app">
-    <p>Route format: /?left=[color]&middle=[color]&right=[color]</p>
-    <p>Available colors: Red, Blue, Yellow</p>
-    <div class="columns">
-      <ColumnLeft />
-      <ColumnMiddle />
-      <ColumnRight />
-    </div>
+    <v-container>
+      <v-layout row>
+        <p>
+          Route format: /[left color][width]/[middle color][width]/[right
+          color][width]
+        </p>
+        <ul>
+          <li>Available colors: Red, Blue, Yellow</li>
+          <li>Middle and right columns are optional</li>
+          <li>All widths should be in percentage</li>
+        </ul>
+      </v-layout>
+      <v-layout row>
+        <router-view />
+      </v-layout>
+    </v-container>
   </div>
 </template>
 
 <script>
-import ColumnLeft from "./components/ColumnLeft.vue";
-import ColumnRight from "./components/ColumnRight.vue";
-import ColumnMiddle from "./components/ColumnMiddle.vue";
-
 export default {
-  name: "app",
-  components: {
-    ColumnLeft,
-    ColumnRight,
-    ColumnMiddle
-  }
+  name: "app"
 };
 </script>
-
-<style>
-.columns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-</style>
