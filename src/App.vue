@@ -1,28 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="columns">
+      <ColumnLeft />
+      <ColumnMiddle />
+      <ColumnRight />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ColumnLeft from "./components/ColumnLeft.vue";
+import ColumnRight from "./components/ColumnRight.vue";
+import ColumnMiddle from "./components/ColumnMiddle.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    ColumnLeft,
+    ColumnRight,
+    ColumnMiddle
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 </style>
