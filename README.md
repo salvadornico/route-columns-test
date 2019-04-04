@@ -16,4 +16,4 @@ npm run build
 ```
 
 ### Deployed version
-[Visit here](https://infallible-wilson-d66ff8.netlify.com/?left=Blue&middle=Red&right=Yellow).
+[Visit here](https://infallible-wilson-d66ff8.netlify.com/Blue/40/Red/30/Yellow/30).
