@@ -4,11 +4,11 @@
       <v-layout row>
         <ul>
           <li>
-            Route format: /[left color]/[width]/[middle color]/[width]/[right
-            color]/[width]
+            Route format: /[left color]/[left color width]/[middle
+            color]/[middle color width]/[right color]/[right color width]
           </li>
           <li>Available colors: Red, Blue, Yellow</li>
-          <li>Middle and right columns are optional</li>
+          <li>All arguments are optional</li>
           <li>All widths should be in percentage</li>
         </ul>
       </v-layout>
