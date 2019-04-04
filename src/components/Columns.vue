@@ -20,17 +20,30 @@ export default {
   },
   computed: {
     columnLayout: function() {
-      const { leftWidth, middleWidth, rightWidth } = this.$route.params;
+      let {
+        leftWidth,
+        middle,
+        middleWidth,
+        right,
+        rightWidth
+      } = this.$route.params;
+      let layoutString = `${leftWidth}% ${middleWidth}% ${rightWidth}%`;
+      //   let layoutString = "100%";
 
-      if (!rightWidth) {
-        return {
-          "--columnLayout": `${leftWidth}% ${middleWidth}%`
-        };
-      }
+      //   if (leftWidth) {
+      //     layoutString = `${leftWidth}%`;
+      //   }
+      //   if (middleWidth) {
+      //     layoutString += ` ${middleWidth}%`;
+      //   }
+      //   } else if (right && !rightWidth) {
+      //     layoutString = `${leftWidth}% ${middleWidth}% ${100 -
+      //       Number(leftWidth) -
+      //       Number(middleWidth)}%`;
+      //   }
 
-      return {
-        "--columnLayout": `${leftWidth}% ${middleWidth}% ${rightWidth}%`
-      };
+      console.log(layoutString);
+      return { "--columnLayout": layoutString };
     }
   }
 };
