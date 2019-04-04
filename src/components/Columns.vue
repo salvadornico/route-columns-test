@@ -1,5 +1,5 @@
 <template>
-  <div class="columns">
+  <div class="columns" :style="columnLayout">
     <ColumnLeft />
     <ColumnMiddle v-if="$route.params.middle" />
     <ColumnRight v-if="$route.params.right" />
@@ -17,6 +17,21 @@ export default {
     ColumnLeft,
     ColumnRight,
     ColumnMiddle
+  },
+  computed: {
+    columnLayout: function() {
+      const { leftWidth, middleWidth, rightWidth } = this.$route.params;
+
+      if (!rightWidth) {
+        return {
+          "--columnLayout": `${leftWidth}% ${middleWidth}%`
+        };
+      }
+
+      return {
+        "--columnLayout": `${leftWidth}% ${middleWidth}% ${rightWidth}%`
+      };
+    }
   }
 };
 </script>
@@ -24,7 +39,8 @@ export default {
 <style>
 .columns {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: var(--columnLayout);
+  width: 100%;
 }
 </style>
 

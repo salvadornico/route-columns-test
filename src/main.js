@@ -12,7 +12,7 @@ const router = new VueRouter({
 	mode: 'history',
 	routes: [
 		// { path: '*', component: Columns }
-		{ path: '/:left/:middle?/:right?', component: Columns }
+		{ path: '/:left/:leftWidth?/:middle?/:middleWidth?/:right?/:rightWidth?', component: Columns }
 	]
 })
 
