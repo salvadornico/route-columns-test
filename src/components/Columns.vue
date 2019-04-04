@@ -1,6 +1,6 @@
 <template>
   <div class="columns" :style="columnLayout">
-    <ColumnLeft />
+    <ColumnLeft v-if="$route.params.left" />
     <ColumnMiddle v-if="$route.params.middle" />
     <ColumnRight v-if="$route.params.right" />
   </div>
@@ -34,20 +34,18 @@ export default {
       }
 
       if (middle && !middleWidth) {
-        middleWidth = 100 - Number(leftWidth);
-        layoutString += ` ${middleWidth}%`;
+        layoutString += ` ${100 - Number(leftWidth)}%`;
       } else if (middle && middleWidth) {
         layoutString += ` ${middleWidth}%`;
       }
 
       if (right && !rightWidth) {
-        rightWidth = 100 - Number(leftWidth) - Number(middleWidth);
-        layoutString += ` ${rightWidth}%`;
+        layoutString += ` ${100 - Number(leftWidth) - Number(middleWidth)}%`;
       } else if (right && rightWidth) {
         layoutString += ` ${rightWidth}%`;
       }
 
-      return { "--columnLayout": layoutString };
+      return { "grid-template-columns": layoutString };
     }
   }
 };
@@ -56,7 +54,6 @@ export default {
 <style>
 .columns {
   display: grid;
-  grid-template-columns: var(--columnLayout);
   width: 100%;
 }
 </style>
