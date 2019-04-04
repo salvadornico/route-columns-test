@@ -10,6 +10,11 @@
           <li>Available colors: Red, Blue, Yellow</li>
           <li>All arguments are optional</li>
           <li>All widths should be in percentage</li>
+          <li>
+            Source code available
+            <a href="https://github.com/salvadornico/route-columns-test">here</a
+            >.
+          </li>
         </ul>
       </v-layout>
       <v-spacer />
