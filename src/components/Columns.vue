@@ -27,22 +27,26 @@ export default {
         right,
         rightWidth
       } = this.$route.params;
-      let layoutString = `${leftWidth}% ${middleWidth}% ${rightWidth}%`;
-      //   let layoutString = "100%";
+      let layoutString = "100%";
 
-      //   if (leftWidth) {
-      //     layoutString = `${leftWidth}%`;
-      //   }
-      //   if (middleWidth) {
-      //     layoutString += ` ${middleWidth}%`;
-      //   }
-      //   } else if (right && !rightWidth) {
-      //     layoutString = `${leftWidth}% ${middleWidth}% ${100 -
-      //       Number(leftWidth) -
-      //       Number(middleWidth)}%`;
-      //   }
+      if (leftWidth) {
+        layoutString = `${leftWidth}%`;
+      }
 
-      console.log(layoutString);
+      if (middle && !middleWidth) {
+        middleWidth = 100 - Number(leftWidth);
+        layoutString += ` ${middleWidth}%`;
+      } else if (middle && middleWidth) {
+        layoutString += ` ${middleWidth}%`;
+      }
+
+      if (right && !rightWidth) {
+        rightWidth = 100 - Number(leftWidth) - Number(middleWidth);
+        layoutString += ` ${rightWidth}%`;
+      } else if (right && rightWidth) {
+        layoutString += ` ${rightWidth}%`;
+      }
+
       return { "--columnLayout": layoutString };
     }
   }
